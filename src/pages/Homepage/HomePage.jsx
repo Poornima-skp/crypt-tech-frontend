@@ -1,12 +1,11 @@
 import React from 'react';
 
-
-const App = () => {
+const HomePage = () => {
     return (
         <div>
-            <h1>Crypt-Tech</h1>
+            <h1>HomePage</h1>
         </div>
     );
 }
 
-export default App;
+export default HomePage;

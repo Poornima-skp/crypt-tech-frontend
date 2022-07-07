@@ -1,0 +1,37 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navbar {
+    flex: 0.2;
+    background-color: #2fa7a1;
+}
+
+.nav-container {
+    position: fixed;
+    left: 0;
+    margin: 10px;
+    height: 100vh;
+    margin: 0px;
+    background-color: #2fa7a1;
+}
+
+.logo-container {
+    background-color: rgb(32, 236, 192);
+    display: flex;
+    padding: 20px;
+    align-items: center;
+    width: 100%;
+}
+
+.main {
+    flex: 0.8;
+    width: 100%;
+
+}
+
+.routes {
+    padding: 20px;
+}
