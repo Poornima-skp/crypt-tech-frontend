@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route, Link} from 'react-router-dom';
+import { Routes, Route, Link } from 'react-router-dom';
 
 // Components
 import { Nav } from '../../components/index';
@@ -9,14 +9,15 @@ import { HomePage, Exchanges, CryptoCurrencies, CryptoDetails, News } from '../i
 
 // CSS
 import './App.css';
+import '../../components/Nav/Nav.css'
 import { Layout, Typography, Space } from 'antd';
 
 
 const App = () => {
     return (
-        
+
         <div className='app'>
-            
+
             <div className="navbar">
                 <Nav />
             </div>
@@ -35,9 +36,19 @@ const App = () => {
                     </div>
                 </Layout>
 
-            </div>
-            <div className="footer">
-                
+
+                <div className="footer">
+                    <Typography.Title level={5}>
+                        Crypt-tech <br />
+                        All Rights Reserved
+                    </Typography.Title>
+                    <Space>
+                        <Link to="/">Home</Link>
+                        <Link to="/exchanges">Exchanges</Link>
+                        <Link to="/cryptoCurrencies">CryptoCurrencies</Link>
+                        <Link to="/news">News</Link>
+                    </Space>
+                </div>
             </div>
 
         </div>

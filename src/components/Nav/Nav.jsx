@@ -12,18 +12,18 @@ const Nav = () => {
         <div className='nav-container'>
             <div className="logo-container">
                 
-               <Space align="center">
+               {/* <Space align="center"> */}
                     <Avatar src={logo} size='large' />
                     <Title level={2} className="logo">
                         <Link to="/" className='logo-link'>Crypt-Tech</Link>
                     </Title>
-                </Space>
+                {/* </Space> */}
 
               
                 {/* <button className='menu-control-container'></button> */}
             </div>
-            <Menu style={{ background:'#2fa7a1'}}>
-                <Menu.Item icon={<HomeOutlined />}>
+            <Menu className='menu'>
+                <Menu.Item icon={<HomeOutlined />} >
                     <Link to='/' className='logo-link'>Home</Link>
                 </Menu.Item>
                 <Menu.Item icon={<FundOutlined />}>

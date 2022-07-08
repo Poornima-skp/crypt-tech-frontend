@@ -1,0 +1,71 @@
+:root {
+    --text-primary: #000;
+    --bgPrimary: #fff;
+    --bgSecondary: #F9F9F9;
+    --bgNav: #2fa7a1
+    --blue: #0071bd;
+    --light-blue: #e6f7ff;
+    --border: #d9d9d9;
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navbar {
+    flex: 0.2;
+    background-color: #2fa7a1;
+   
+}
+
+.nav-container {
+    position: fixed;
+    left: 0;
+    margin: 10px;
+    height: 100vh;
+    margin: 0px;
+    background-color: #2fa7a1;
+}
+
+.logo {
+    margin: 0 0 0 15px;
+}
+
+.logo-link {
+    color: rgb(15, 4, 38) !important
+}
+
+/* .logo a {
+    color: white;
+} */
+
+.logo-container {
+    /* background-color: rgb(32, 236, 192); */
+    background-color: #2fa7a1;
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    /* width: 100%; */
+}
+
+a:hover {
+    color: var(--bgPrimary) !important;
+}
+
+.menu{
+    background-color: var(--bgNav) !important;
+}
+
+/* .menu-control-container {
+    display: none !important;
+    position: absolute !important;
+    right: 10px !important;
+    top: 25px !important;
+    font-size: 1.2rem !important;
+    background-color: var(--bgSecondary) !important;
+    border: none !important;
+} */
+
