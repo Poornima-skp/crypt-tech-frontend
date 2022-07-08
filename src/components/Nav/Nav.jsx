@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { HomeOutlined, MoneyCollectOutlined, BulbOutlined, FundOutlined, MenuOutlined, RedditCircleFilled} from '@ant-design/icons';
 
 
-import logo from '../../images/logo2.jpg'
+import logo from '../../images/Know.png'
 
 const { Title } = Typography;
 const Nav = () => {
@@ -15,7 +15,7 @@ const Nav = () => {
                <Space align="center">
                     <Avatar src={logo} size='large' />
                     <Title level={2} className="logo">
-                        <Link to="/" style={{ color: 'black' }}>Crypt-Tech</Link>
+                        <Link to="/" className='logo-link'>Crypt-Tech</Link>
                     </Title>
                 </Space>
 
@@ -24,16 +24,16 @@ const Nav = () => {
             </div>
             <Menu style={{ background:'#2fa7a1'}}>
                 <Menu.Item icon={<HomeOutlined />}>
-                    <Link to='/'>Home</Link>
+                    <Link to='/' className='logo-link'>Home</Link>
                 </Menu.Item>
                 <Menu.Item icon={<FundOutlined />}>
-                    <Link to='/cryptocurrencies'>Cryptocurrencies</Link>
+                    <Link to='/cryptocurrencies' className='logo-link'>Cryptocurrencies</Link>
                 </Menu.Item>
                 <Menu.Item icon={<MoneyCollectOutlined />}>
-                    <Link to='/exchanges'>Exchanges</Link>
+                    <Link to='/exchanges' className='logo-link'>Exchanges</Link>
                 </Menu.Item>
                 <Menu.Item icon={<BulbOutlined />}>
-                    <Link to='/news'>News</Link>
+                    <Link to='/news' className='logo-link'>News</Link>
                 </Menu.Item>
             </Menu>
             
