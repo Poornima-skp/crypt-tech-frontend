@@ -12,6 +12,7 @@ import './App.css';
 import '../../components/Nav/Nav.css'
 import '../Homepage/HomePage.css'
 import '../Cryptocurrencies/CryptoCurrencies.css'
+import '../News/News.css'
 import { Layout, Typography, Space } from 'antd';
 
 
@@ -23,10 +24,11 @@ const App = () => {
             <div className="navbar">
                 <Nav />
             </div>
+            
             <div className="main">
-                <Layout>
+            <Layout>
+               
                     <div className="routes">
-
                         <Routes>
                             <Route path="/" element={<HomePage />} />
                             <Route path="/exchanges" element={<Exchanges />} />
@@ -34,25 +36,24 @@ const App = () => {
                             <Route path="/crypto/:coinId" element={<CryptoDetails />} />
                             <Route path="/news" element={<News />} />
                         </Routes>
-
                     </div>
                 </Layout>
 
+                    <div className="footer">
+                        <Typography.Title level={5}>
+                            Crypt-tech <br />
+                            All Rights Reserved
+                        </Typography.Title>
+                        <Space>
+                            <Link to="/">Home</Link>
+                            <Link to="/exchanges">Exchanges</Link>
+                            <Link to="/cryptoCurrencies">CryptoCurrencies</Link>
+                            <Link to="/news">News</Link>
+                        </Space>
+                    </div>
 
-                <div className="footer">
-                    <Typography.Title level={5}>
-                        Crypt-tech <br />
-                        All Rights Reserved
-                    </Typography.Title>
-                    <Space>
-                        <Link to="/">Home</Link>
-                        <Link to="/exchanges">Exchanges</Link>
-                        <Link to="/cryptoCurrencies">CryptoCurrencies</Link>
-                        <Link to="/news">News</Link>
-                    </Space>
-                </div>
+               
             </div>
-
         </div>
     );
 }

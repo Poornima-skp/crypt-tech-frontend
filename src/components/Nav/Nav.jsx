@@ -12,27 +12,24 @@ const Nav = () => {
         <div className='nav-container'>
             <div className="logo-container">
                 
-               {/* <Space align="center"> */}
                     <Avatar src={logo} size='large' />
                     <Title level={2} className="logo">
                         <Link to="/" className='logo-link'>Crypt-Tech</Link>
                     </Title>
-                {/* </Space> */}
-
               
                 {/* <button className='menu-control-container'></button> */}
             </div>
             <Menu className='menu'>
-                <Menu.Item icon={<HomeOutlined />} >
+                <Menu.Item icon={<HomeOutlined />} className='menu'>
                     <Link to='/' className='logo-link'>Home</Link>
                 </Menu.Item>
-                <Menu.Item icon={<FundOutlined />}>
+                <Menu.Item icon={<FundOutlined />} className='menu'>
                     <Link to='/cryptocurrencies' className='logo-link'>Cryptocurrencies</Link>
                 </Menu.Item>
-                <Menu.Item icon={<MoneyCollectOutlined />}>
+                <Menu.Item icon={<MoneyCollectOutlined />} className='menu'>
                     <Link to='/exchanges' className='logo-link'>Exchanges</Link>
                 </Menu.Item>
-                <Menu.Item icon={<BulbOutlined />}>
+                <Menu.Item icon={<BulbOutlined />} className='menu'>
                     <Link to='/news' className='logo-link'>News</Link>
                 </Menu.Item>
             </Menu>
