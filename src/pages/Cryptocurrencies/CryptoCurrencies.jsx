@@ -9,11 +9,14 @@ import { CloudDownloadOutlined } from '@ant-design/icons';
 const CryptoCurrencies = ({ simplified }) => {
     const count = simplified ? 10 : 100;
     const { data: cryptosList, isFetching } = useGetCryptosQuery(count);
-    const [cryptos, setCryptos] = useState(cryptosList?.data?.coins);
+    const [cryptos, setCryptos] = useState([]);
     const [searchTerm, setSearchTerm] = useState('')
 
     useEffect(() => {
-        setCryptos(cryptosList?.data?.coins)
+        const filteredData = cryptosList?.data?.coins.filter((coin) => coin.name.toLowerCase().includes(searchTerm.toLowerCase()));
+
+        setCryptos(filteredData);
+
     },[cryptosList, searchTerm])
 
     // console.log(cryptos);
