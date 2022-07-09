@@ -10,6 +10,8 @@ import { HomePage, Exchanges, CryptoCurrencies, CryptoDetails, News } from '../i
 // CSS
 import './App.css';
 import '../../components/Nav/Nav.css'
+import '../Homepage/HomePage.css'
+import '../Cryptocurrencies/CryptoCurrencies.css'
 import { Layout, Typography, Space } from 'antd';
 
 
