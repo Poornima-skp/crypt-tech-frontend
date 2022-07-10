@@ -18,8 +18,8 @@ export const cryptoNewsApi = createApi({
     baseQuery: fetchBaseQuery({ baseUrl}),
     endpoints: (builder) => ({
         getCryptoNews: builder.query({
-            // query: (newsCategory, count) => createRequest(`/news/search?q=${newsCategory}&safeSearch=0ff&textFormat=Raw&freshness=Day&count=${count}`)
-            query: (newsCategory, count) => createRequest(`/news/?${newsCategory}&limit=${count}`)
+            // query: (newsCategory, count) => createRequest(`/news/search?q=${newsCategory}&safeSearch=0ff&textFormat=Raw&freshness=Day&limit=${count}`)
+            query: (newsCategory, count) => createRequest(`/news/search?q=${newsCategory}&freshness=Day&textFormat=Raw&safeSearch=Off&limit=${count}`)
         })
     })
 })

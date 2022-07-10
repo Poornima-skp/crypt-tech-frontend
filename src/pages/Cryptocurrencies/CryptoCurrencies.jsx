@@ -27,6 +27,7 @@ const CryptoCurrencies = ({ simplified }) => {
         setSearchTerm(e.target.value)
     }
 
+    console.log(cryptos)
     return (
         <>
             {!simplified && (
@@ -34,11 +35,11 @@ const CryptoCurrencies = ({ simplified }) => {
                     <Input placeholder='Search Cryptocurrency' onChange={handleChange} />
                 </div>
             )}
-            
+            console.log(cryptos)
             <Row gutter={[32, 32]} className="cryto-card-container">
                 {cryptos?.map((currency) => (
-                    <Col xs={24} sm={12} lg={6} className="crypto-card key={currency.id}">
-                        <Link to={`/crypto/${currency.id}`}>
+                    <Col xs={24} sm={12} lg={6} className="crypto-card" key={currency.uuid}>
+                        <Link to={`/crypto/${currency.uuid}`}>
                             <Card
                                 title={`${currency.rank}. ${currency.name}`}
                                 extra={<img className='crypto-image' src={currency.iconUrl} />}

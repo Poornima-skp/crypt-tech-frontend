@@ -13,6 +13,7 @@ import '../../components/Nav/Nav.css'
 import '../Homepage/HomePage.css'
 import '../Cryptocurrencies/CryptoCurrencies.css'
 import '../News/News.css'
+import '../CryptoDetails/CryptoDetails.css'
 import { Layout, Typography, Space } from 'antd';
 
 
