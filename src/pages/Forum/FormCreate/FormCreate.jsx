@@ -3,8 +3,8 @@ import { useState } from 'react';
 import { Container, TextField, Button, Typography, Paper} from '@mui/material'
 import FileBase from 'react-file-base64'
 import { Divider } from 'antd';
-
-
+import { useDispatch } from 'react-redux';
+import { createPost } from '../../../utilities/post-services';
 
 const FormCreate = () => {
     const [postData, setPostData] = useState({
@@ -14,13 +14,15 @@ const FormCreate = () => {
         tags: '',
         selectedFile: ''
     })
-    const handleSubmit = () => {
 
+    const dispatch = useDispatch();
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        dispatch(createPost(postData))
     }
 
-    const handleChange = (e) => {
-        setPostData({ ...postData, creator: e.target.value})
-    }
 
     const handleDone = (base64) => {
         setPostData({ ...postData, selectedFile: base64 })
@@ -44,7 +46,7 @@ const FormCreate = () => {
                         label="Creator"
                         fullWidth
                         value={postData.creator}
-                        onChange={handleChange}
+                        onChange={(e) => setPostData({... postData, creator: e.target.value })}
                         sx={{ padding: '10px' }}
                     />
                     <TextField
@@ -53,7 +55,7 @@ const FormCreate = () => {
                         label="Title"
                         fullWidth
                         value={postData.title}
-                        onChange={handleChange}
+                        onChange={(e) => setPostData({ ...postData, title: e.target.value })}
                         sx={{ padding: '10px' }}
                     />
                     <TextField
@@ -62,7 +64,7 @@ const FormCreate = () => {
                         label="Message"
                         fullWidth
                         value={postData.message}
-                        onChange={handleChange}
+                        onChange={(e) => setPostData({ ...postData, message: e.target.value })}
                         sx={{ padding: '10px' }}
                     />
                     <TextField
@@ -71,7 +73,7 @@ const FormCreate = () => {
                         label="Tags"
                         fullWidth
                         value={postData.tags}
-                        onChange={handleChange}
+                        onChange={(e) => setPostData({ ...postData, tags: e.target.value })}
                         sx={{ padding: '10px' }}
                     />
                     <div className='fileInput'>

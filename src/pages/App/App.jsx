@@ -16,6 +16,7 @@ import '../News/News.css'
 import '../CryptoDetails/CryptoDetails.css'
 import '../Forum/Forum.css'
 import '../Forum/FormCreate/FormCreate.css'
+import '../Forum/Posts/Post/Posts.css'
 import { Layout, Typography, Space } from 'antd';
 
 

@@ -17,7 +17,7 @@ export const getPosts =() => async (dispatch) => {
 
 const create = (newPost) => axios.post(url, newPost)
 
-export const createPost = (post) => async(dispatch) => {
+export const createPost = (post) => async (dispatch) => {
     try {
         const { data } = await create(post);
 
