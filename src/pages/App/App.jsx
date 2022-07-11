@@ -5,7 +5,7 @@ import { Routes, Route, Link } from 'react-router-dom';
 import { Nav } from '../../components/index';
 
 // Pages
-import { HomePage, Exchanges, CryptoCurrencies, CryptoDetails, News } from '../index';
+import { HomePage, Forum, CryptoCurrencies, CryptoDetails, News, FormCreate, Auth } from '../index';
 
 // CSS
 import './App.css';
@@ -14,6 +14,8 @@ import '../Homepage/HomePage.css'
 import '../Cryptocurrencies/CryptoCurrencies.css'
 import '../News/News.css'
 import '../CryptoDetails/CryptoDetails.css'
+import '../Forum/Forum.css'
+import '../Forum/FormCreate/FormCreate.css'
 import { Layout, Typography, Space } from 'antd';
 
 
@@ -32,7 +34,9 @@ const App = () => {
                     <div className="routes">
                         <Routes>
                             <Route path="/" element={<HomePage />} />
-                            <Route path="/exchanges" element={<Exchanges />} />
+                            <Route path="/forum" element={<Forum />} />
+                            <Route path="/form" element={<FormCreate />} />
+                            <Route path="/auth" element={<Auth />} />
                             <Route path="/cryptocurrencies" element={<CryptoCurrencies />} />
                             <Route path="/crypto/:coinId" element={<CryptoDetails />} />
                             <Route path="/news" element={<News />} />

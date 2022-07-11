@@ -12,3 +12,4 @@ export default configureStore({
         getDefaultMiddleware().concat(cryptoNewsApi.middleware, cryptoApi.middleware)
 
 });
+

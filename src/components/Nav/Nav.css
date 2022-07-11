@@ -4,6 +4,7 @@
     --bgSecondary: #F9F9F9;
     --bgNav: #2fa7a1;
     --font-color: #0071bd;
+    --logo-color: rgb(15, 4, 38);
     --light-blue: #e6f7ff;
     --border: #d9d9d9;
 
@@ -15,16 +16,10 @@
     box-sizing: border-box;
 }
 
-.navbar {
-    flex: 0.2;
-    background-color: #2fa7a1;
-    /* width: 250px !important; */
-   
-}
 
 .nav-container {
-    width: 281.78px !important;
-    position: fixed;
+    /* width: 270px !important; */
+    /* position: fixed; */
     left: 0;
     height: 100vh;
     margin: 0px;
@@ -36,7 +31,7 @@
 }
 
 .logo-link {
-    color: rgb(15, 4, 38) !important;
+    color: var(--logo-color) !important;
 }
 
 /* .logo a {
@@ -44,19 +39,20 @@
 } */
 
 .logo-container {
-    /* background-color: rgb(32, 236, 192); */
-    width: 281.78px !important;
-    background-color: #2fa7a1;
+    background-color: rgb(32, 236, 192);
+    /* width: 270px !important; */
+    /* background-color: #2fa7a1; */
     display: flex;
-    padding: 40px;
+    padding: 10px;
+    
     align-items: center;
     /* width: 100%; */
 }
 
-.ant-menu-item{
-    width: 281.78px !important;
+/* .ant-menu-item{
+    width: 270px !important;
     
-}
+} */
 
 a:hover {
     color: var(--bgPrimary) !important;
@@ -67,7 +63,7 @@ a:hover {
     
 }
 
-/* .menu-control-container {
+.menu-control-container {
     display: none !important;
     position: absolute !important;
     right: 10px !important;
@@ -75,5 +71,19 @@ a:hover {
     font-size: 1.2rem !important;
     background-color: var(--bgSecondary) !important;
     border: none !important;
-} */
+}
+
+.auth-link{
+    display: flex;
+    justify-content: end;
+}
+
+.auth-button{
+    color: rgb(75, 67, 67) !important;
+    padding-left: 0px !important;
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+    font-size: large !important;
+    font-weight:bold !important;
+}
 

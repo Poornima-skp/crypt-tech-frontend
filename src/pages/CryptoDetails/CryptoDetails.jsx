@@ -54,14 +54,14 @@ const CryptoDetails = () => {
                     {cryptoDetails.name} live price in US Dollars
                 </p>
             </Col>
-            <Select
+            {/* <Select
                 defaultValue="7d"
                 className="select-timeperiod"
                 placeholder="Select a time period"
                 onchange={handleChange}
             >
                 {time.map((date) => <Option key={date}>{date}</Option>)}
-            </Select>
+            </Select> */}
             <Col className='stats-container'>
                 <Col className='coin-value-statistics'>
                     <Col className='coin-value-staistics-heading'>

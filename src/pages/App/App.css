@@ -1,4 +1,4 @@
-@media screen and (max-width:1300px) {
+/* @media screen and (max-width:1300px) {
     .main {
         margin-left: 50px;
     }
@@ -14,9 +14,9 @@
     .main {
         margin-left: 100px;
     }
-}
+} */
 
-@media screen and (max-width:800px) {
+/* @media screen and (max-width:800px) {
     .app {
         flex-direction: column;
         overflow: hidden;
@@ -87,13 +87,26 @@
     .heading {
         margin-top: 20px;
     }
-}
+} */
 
 
 
 .app {
-    display: flex;
+    display: flex; 
     overflow: hidden;
+    /* height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 25% 95%; */
+
+}
+
+.navbar {
+    flex: 0.2;
+    /* position: relative; */
+    background-color: #2fa7a1;
+    /* max-width: 270px !important; */
+
 }
 
 .main {

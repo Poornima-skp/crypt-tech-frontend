@@ -2,10 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
+import { createStore, applyMiddleware, compose } from 'redux';
+import thunk from 'redux-thunk';
+import reducers from './reducers/index'
 
 import App from "./pages/App/App";
-import store from './store/store'
 import 'antd/dist/antd.css'
+
+const store = createStore(reducers, compose(applyMiddleware(thunk)));
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
