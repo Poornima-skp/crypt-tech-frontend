@@ -1,5 +1,14 @@
+.forum-page{
+    display: grid;
+    grid-template-areas: 3fr, 1fr;
+}
+
 .fourm-title {
     font-size: 30px !important;
     color: var(--bgNav) !important;
 
+}
+
+.form{
+    margin: 30px;
 }

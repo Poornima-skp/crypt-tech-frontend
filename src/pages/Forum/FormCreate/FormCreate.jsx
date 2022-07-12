@@ -1,12 +1,12 @@
 
-import { useState } from 'react';
-import { Container, TextField, Button, Typography, Paper} from '@mui/material'
+import { useState, useEffect } from 'react';
+import { TextField, Button, Typography, Paper } from '@mui/material'
 import FileBase from 'react-file-base64'
 import { Divider } from 'antd';
-import { useDispatch } from 'react-redux';
-import { createPost } from '../../../utilities/post-services';
+import { useDispatch, useSelector } from 'react-redux';
+import { createPost, updatePost } from '../../../utilities/post-services';
 
-const FormCreate = () => {
+const FormCreate = ({ currentId, setCurrentId }) => {
     const [postData, setPostData] = useState({
         creator: '',
         title: '',
@@ -15,38 +15,58 @@ const FormCreate = () => {
         selectedFile: ''
     })
 
+    const post = useSelector((state) => currentId ? state.posts.find((p) => p._id === currentId) : null )
+
     const dispatch = useDispatch();
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        dispatch(createPost(postData))
+        if (currentId) {
+            dispatch(updatePost(currentId, postData));
+        } else {
+            dispatch(createPost(postData));
+            clear();
+        }
+        clear();
+
     }
 
+    useEffect(() => {
+        if(post) setPostData(post)
+    },[post])
 
     const handleDone = (base64) => {
         setPostData({ ...postData, selectedFile: base64 })
-     }
+    }
 
     const clear = () => {
+        setCurrentId(null);
+        setPostData({
+            creator: '',
+            title: '',
+            message: '',
+            tags: '',
+            selectedFile: ''
+        })
 
     }
 
     return (
-            
+
 
         <div className='form-page'>
-            <Divider orientation="left" className='fourm-title'>Create a New Thread</Divider>
-            <Paper sx={{ padding: '10px', maxWidth: '500px' }}>
+            <Paper sx={{ padding: '10px', maxWidth: '450px' }}>
+
                 <form autoComplete='off' noValidate className='form' onSubmit={handleSubmit} >
-                    <Typography variant='h6'>Enter the details </Typography>
+                    <Typography variant='h6'>{ currentId ? 'Edit your Thread': 'Start a New Thead'}</Typography>
                     <TextField
                         name='creator'
                         variant='outlined'
                         label="Creator"
                         fullWidth
                         value={postData.creator}
-                        onChange={(e) => setPostData({... postData, creator: e.target.value })}
+                        onChange={(e) => setPostData({ ...postData, creator: e.target.value })}
                         sx={{ padding: '10px' }}
                     />
                     <TextField
@@ -76,8 +96,9 @@ const FormCreate = () => {
                         onChange={(e) => setPostData({ ...postData, tags: e.target.value })}
                         sx={{ padding: '10px' }}
                     />
+
                     <div className='fileInput'>
-                        <FileBase 
+                        <FileBase
                             type="file"
                             multiple={false}
                             onDone={handleDone}
@@ -85,27 +106,27 @@ const FormCreate = () => {
 
                         </FileBase>
                     </div>
-                    <Button 
+                    <Button
                         sx={{ marginTop: 5 }} variant='contained' color='primary'
-                        size='large' 
-                        type='submit' 
+                        size='large'
+                        type='submit'
                         fullWidth
-                    > 
-                        Submit 
+                    >
+                        Submit
                     </Button>
-                    <Button 
+                    <Button
                         sx={{ marginTop: 1 }}
-                        variant='contained' color='error' 
-                        size='small' 
-                        onClick={clear} 
+                        variant='contained' color='error'
+                        size='small'
+                        onClick={clear}
                         fullWidth
 
-                    > 
-                        Clear 
+                    >
+                        Clear
                     </Button>
                 </form>
             </Paper>
-         </div>
+        </div>
     );
 }
 

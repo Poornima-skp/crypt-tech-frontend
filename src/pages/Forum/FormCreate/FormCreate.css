@@ -1,6 +1,3 @@
 .form-page{
-    display: flex !important;
-    flex-direction: column;
-    align-items: center;
     padding-bottom: 200px;
 }

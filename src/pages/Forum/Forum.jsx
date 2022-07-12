@@ -1,27 +1,34 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Divider, Row, Col, Typography } from 'antd';
 import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom'
-import { Posts } from '../index'
+import { Posts, FormCreate } from '../index'
 import { getPosts } from '../../utilities/post-services';
 
 const { Title } = Typography
 
 const Forum = () => {
+    const [currentId, setCurrentId] = useState(null);
     const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(getPosts())
-    },[dispatch])
+    }, [currentId, dispatch])
+
     return (
         <div>
             <Divider orientation="left" className='fourm-title'>Crypto Forums</Divider>
-            <Title level={4} className="show-more">
-                <Link to="/form">Create a new Forum for dicussion</Link>
-            </Title>
+            {/* <Title level={4} className="show-more">
+                <Link to="/form" onClick={(currentId) => {<FormCreate currentId={currentId} setCurrentId={setCurrentId}/>}}>Create a new Forum for dicussion </Link>
+            </Title> */}
 
-            <Posts />
-            
+
+            <div className="forum-page">
+                <Posts setCurrentId={setCurrentId} />
+
+                <Title level={4} className="form">
+                    <FormCreate currentId={currentId} setCurrentId={setCurrentId} />
+                </Title>
+            </div>
 
         </div>
     );
