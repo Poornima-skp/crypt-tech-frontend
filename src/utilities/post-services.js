@@ -55,3 +55,17 @@ export const deletePost = (id) => async (dispatch) => {
 
     }
 }
+
+const likes = (id) => axios.put(`${url}/${id}/likePost`);
+
+export const likePost = (id) => async (dispatch) => {
+    try {
+        const { data } = await likes(id);
+
+        dispatch({ type:'UPDATE', payload: data })
+
+    } catch (error) {
+        console.log(error)
+
+    }
+}

@@ -20,11 +20,21 @@
 .nav-container {
     /* width: 270px !important; */
     /* position: fixed; */
+    /* position:absolute; */
+    /* background-image: url(../../images/backImage.jpg); */
     left: 0;
     height: 100vh;
     margin: 0px;
     background-color: #2fa7a1;
 }
+
+.menu {
+    /* position: relative; */
+    /* opacity: 0; */
+    background-color: var(--bgNav) !important;
+
+}
+
 
 .logo {
     margin: 0 0 0 15px;
@@ -58,10 +68,7 @@ a:hover {
     color: var(--bgPrimary) !important;
 }
 
-.menu{
-    background-color: var(--bgNav) !important;
-    
-}
+
 
 .menu-control-container {
     display: none !important;
