@@ -28,7 +28,7 @@ export const createPost = (post) => async (dispatch) => {
     }
 }
 
-const update = (id, updatedPost) => axios.patch(`${url}/${id}`, updatedPost);
+const update = (id, updatedPost) => axios.put(`${url}/${id}`, updatedPost);
 
 export const updatePost = (id, post) => async (dispatch) => {
     try {
@@ -42,3 +42,16 @@ export const updatePost = (id, post) => async (dispatch) => {
     }
 }
 
+
+const deletePosts = (id) => axios.delete(`${url}/${id}`);
+
+export const deletePost = (id) => async (dispatch) => {
+    try {
+        await  deletePosts(id);
+
+        dispatch({ type: 'DELETE', payload: id})
+    } catch (error) {
+        console.log(error)
+
+    }
+}
