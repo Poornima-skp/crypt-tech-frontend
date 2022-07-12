@@ -30,15 +30,17 @@ const Post = ({ post, setCurrentId }) => {
                 image={post.selectedFile || 'https://media.istockphoto.com/photos/currency-and-exchange-stock-chart-for-finance-and-economy-display-picture-id1358927461?b=1&k=20&m=1358927461&s=170667a&w=0&h=1Mso4NiczXwiunkwg7uwHtRhMhJZc5uxTE9vRZGsfhE='}
                 title={post.title}
             />
-            <div className="overlay">
-                <Typography variant="h6">{post.creator}</Typography>
-                <Typography variant="body2">{moment(post.createdAt).fromNow()}</Typography>
-            </div>
-            <div className="overlay2">
-                <Button className='card-button' size='small' onClick={() => {setCurrentId(post._id) }}>
-                    {/* <Link to='/form'><EditTwoToneIcon fontSize="medium" /></Link> */}
-                    <EditTwoToneIcon fontSize="medium" />
-                </Button>
+            <div className='creator'>
+                <div>
+                    <Typography variant="h6">{post.creator}</Typography>
+                    <Typography variant="body2">{moment(post.createdAt).fromNow()}</Typography>
+                </div>
+                <div>
+                    <Button className='card-button' size='small' onClick={() => { setCurrentId(post._id) }}>
+                        {/* <Link to='/form'><EditTwoToneIcon fontSize="medium" /></Link> */}
+                        <EditTwoToneIcon fontSize="medium" />
+                    </Button>
+                </div>
             </div>
             <div className="details">
                 <Typography variant="body2" color="textSecondary" >{post.tags.map((tag) => `#${tag}`)}</Typography>

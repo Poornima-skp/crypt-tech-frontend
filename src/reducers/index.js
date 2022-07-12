@@ -2,9 +2,13 @@ import { combineReducers } from 'redux';
 
 import posts from './posts'
 import store from './store'
+import auth from './auth.js'
 
 
-export default combineReducers({
+const reducers =  combineReducers({
     posts,
-    store
+    store,
+    auth
 })
+
+export default reducers;

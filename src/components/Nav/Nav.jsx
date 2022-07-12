@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { Button, Menu, Space, Typography, Avatar } from 'antd';
 import { Link } from 'react-router-dom';
 import { HomeOutlined, MoneyCollectOutlined, BulbOutlined, FundOutlined, MenuOutlined, RedditCircleFilled } from '@ant-design/icons';
@@ -9,8 +11,20 @@ import logo from '../../images/Know.png'
 const { Title } = Typography;
 
 const Nav = () => {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
     const [activeMenu, setActiveMenu] = useState(true);
     const [screenSize, setScreenSize] = useState(null);
+    const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')))
+
+    // console.log(user);
+
+    // useEffect(() => {
+    //     const token = user?.token;
+
+    //     setUser(JSON.parse(localStorage.getItem('profile')))
+    // }, [])
 
     useEffect(() => {
         const handleResize = () => setScreenSize(window.innerWidth);
@@ -30,7 +44,14 @@ const Nav = () => {
         }
     }, [screenSize]);
 
-    const user = false;
+    const logout = () => {
+        dispatch({ type: 'LOGOUT' })
+
+        navigate('/');
+        setUser(null);
+    }
+
+    // const user = false;
 
     return (
         <div className='nav-container'>
@@ -47,17 +68,17 @@ const Nav = () => {
                 <div className='profile'>
                     <Avatar className='purple' alt={user.result.name} src={user.result.imageUrl} >{user.result.name.charAt(0)}</Avatar>
                     <Title className='userName' level={5}>{user.result.name}</Title>
-                    <Button className="auth-button logout" type="link" size={'large'}>
+                    <Button className="auth-button logout" type="primary" danger ghost size='middle' onClick={logout}>
                         Logout
                     </Button>
                 </div>
             ) : (
                     <div className="auth-link">
-                        <Button className="auth-button" type="link" size={'large'}>
+                        {/* <Button className="auth-button" type="link" size={'large'}>
                             SignUp
-                        </Button>
+                        </Button> */}
                         <Button className="auth-button" type="link" size={'large'}>
-                            <Link to='/auth'>Login</Link>
+                            <Link to='/auth'>Sign In</Link>
                         </Button>
 
                     </div>
