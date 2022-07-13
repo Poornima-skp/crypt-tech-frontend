@@ -7,10 +7,15 @@ import { gapi } from "gapi-script";
 import HttpsIcon from '@mui/icons-material/Https';
 
 import Input from './Input'
+import { signin, signup } from '../../utilities/auth-services';
+
 
 const Auth = () => {
+    const initialState = { firstname: '', lastname: '', password: '', confirmpassword: '' };
+
     const [showPassword, setShowPassword] = useState(false)
     const [isSignUp, setIsSignUp] = useState(false);
+    const [formData, setFormData] = useState(initialState);
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -22,12 +27,21 @@ const Auth = () => {
         });
     });
 
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
+        e.preventDefault();
 
+        // console.log(formData);
+        if(isSignUp) {
+            dispatch(signup(formData, navigate));
+
+        } else {
+            dispatch(signin(formData, navigate))
+
+        }
     }
 
-    const handleChange = () => {
-
+    const handleChange = (e) => {
+        setFormData({...formData, [e.target.name]: e.target.value} ) 
     }
 
     const handleShowPassword = () => {
@@ -36,7 +50,7 @@ const Auth = () => {
 
     const switchMode = () => {
         setIsSignUp((prevIsSignUp) => !prevIsSignUp)
-        handleShowPassword(false)
+        setShowPassword(false);
     }
 
     const googleSuccess = async (res) => {

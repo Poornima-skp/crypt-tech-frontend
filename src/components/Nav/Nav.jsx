@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation} from 'react-router-dom';
 import { Button, Menu, Space, Typography, Avatar } from 'antd';
 import { Link } from 'react-router-dom';
 import { HomeOutlined, MoneyCollectOutlined, BulbOutlined, FundOutlined, MenuOutlined, RedditCircleFilled } from '@ant-design/icons';
@@ -13,6 +13,7 @@ const { Title } = Typography;
 const Nav = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const location = useLocation();
 
     const [activeMenu, setActiveMenu] = useState(true);
     const [screenSize, setScreenSize] = useState(null);
@@ -20,11 +21,11 @@ const Nav = () => {
 
     // console.log(user);
 
-    // useEffect(() => {
-    //     const token = user?.token;
+    useEffect(() => {
+        const token = user?.token;
 
-    //     setUser(JSON.parse(localStorage.getItem('profile')))
-    // }, [])
+        setUser(JSON.parse(localStorage.getItem('profile')))
+    }, [location])
 
     useEffect(() => {
         const handleResize = () => setScreenSize(window.innerWidth);

@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-const url = "http://localhost:8080/posts";
+const BASE_URL = "http://localhost:8080/posts";
 
-const fetchPosts = () => axios.get(url);
+const fetchPosts = () => axios.get(BASE_URL);
 
 export const getPosts =() => async (dispatch) => {
     try {
@@ -15,7 +15,7 @@ export const getPosts =() => async (dispatch) => {
     }
 }
 
-const create = (newPost) => axios.post(url, newPost)
+const create = (newPost) => axios.post(BASE_URL, newPost)
 
 export const createPost = (post) => async (dispatch) => {
     try {
@@ -28,7 +28,7 @@ export const createPost = (post) => async (dispatch) => {
     }
 }
 
-const update = (id, updatedPost) => axios.put(`${url}/${id}`, updatedPost);
+const update = (id, updatedPost) => axios.put(`${BASE_URL}/${id}`, updatedPost);
 
 export const updatePost = (id, post) => async (dispatch) => {
     try {
@@ -43,7 +43,7 @@ export const updatePost = (id, post) => async (dispatch) => {
 }
 
 
-const deletePosts = (id) => axios.delete(`${url}/${id}`);
+const deletePosts = (id) => axios.delete(`${BASE_URL}/${id}`);
 
 export const deletePost = (id) => async (dispatch) => {
     try {
@@ -56,7 +56,7 @@ export const deletePost = (id) => async (dispatch) => {
     }
 }
 
-const likes = (id) => axios.put(`${url}/${id}/likePost`);
+const likes = (id) => axios.put(`${BASE_URL}/${id}/likePost`);
 
 export const likePost = (id) => async (dispatch) => {
     try {
