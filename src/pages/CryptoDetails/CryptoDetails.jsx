@@ -38,7 +38,7 @@ const CryptoDetails = () => {
     // const cryptoDetails = data?.data?.coin;
     console.log(cryptoDetails);
 
-    
+
     useEffect(() => {
         axios.request(options).then(function (response) {
 
@@ -46,16 +46,16 @@ const CryptoDetails = () => {
             console.log(coinId, 'inside')
 
             setCryptoDetails(coinData)
-            
+
             console.log(coinData, 'coinData');
         }).catch(function (error) {
             console.error(error);
         });
     }, [coinId])
 
-//     console.log(coinId, 'coinid')
-// console.log(cryptoDetails?.coin?.name, 'let hpe')
-//     console.log(cryptoDetails.coin.price, 'let hpe')
+    //     console.log(coinId, 'coinid')
+    // console.log(cryptoDetails?.coin?.name, 'let hpe')
+    //     console.log(cryptoDetails.coin.price, 'let hpe')
 
 
     const time = ['3h', '24h', '7d', '30d', '1y', '3m', '3y', '5y'];
@@ -119,7 +119,7 @@ const CryptoDetails = () => {
         //                     <Text className='stats'>{value}</Text>
         //                 </Col>
         //             ))}
-                
+
         //         </Col>
 
         //         <Col className='other-stats-info'>
@@ -152,10 +152,10 @@ const CryptoDetails = () => {
         //         </Row>
         //     </Col>
         // </Col>
-       <div>
+        <div>
             <h1>{coinId}</h1>
 
-       </div>
+        </div>
     );
 }
 

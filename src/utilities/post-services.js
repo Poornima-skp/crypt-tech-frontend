@@ -1,6 +1,8 @@
 import axios from 'axios';
 
-const BASE_URL = "http://localhost:8080/posts";
+const BASE_URL = "https://crypt-tech-backend-mzt2ruahs-poornima-skp.vercel.app/posts";
+
+// const BASE_URL = "http://localhost:8080/posts"
 
 const fetchPosts = () => axios.get(BASE_URL);
 

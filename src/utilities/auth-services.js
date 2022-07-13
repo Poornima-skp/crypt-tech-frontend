@@ -1,6 +1,8 @@
 import axios from 'axios'
 
-const BASE_URL = "http://localhost:8080";
+const BASE_URL = "https://crypt-tech-backend-mzt2ruahs-poornima-skp.vercel.app";
+
+// const BASE_URL = "http://localhost:8080"
 
 const signIn = (formData) => axios.post(`${BASE_URL}/user/signin`, formData)
 
