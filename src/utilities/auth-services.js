@@ -22,7 +22,7 @@ export const signup = (formData, navigate) => async (dispatch) => {
 
     
     try {
-        console.log(formData, "formDATA")
+        // console.log(formData, "formDATA")
         const { data } = await signUp(formData)
 
         dispatch({ type: 'AUTH', data })
